@@ -24,9 +24,19 @@ pipeline {
                 sh 'docker build -t emotion-detector .'
             }
         }
-        stage('Check sudo access') {
+        stage('Clone repo') {
             steps {
-                sh 'sudo whoami'
+                sh 'git clone https://github.com/yuliadziuba/emotion-detector.git repo'
+                dir('repo') {
+                    sh 'ls -la'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('repo') {
+                    sh 'your-build-command-here'
+                }
             }
         }
     }
