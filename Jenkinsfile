@@ -24,5 +24,10 @@ pipeline {
                 sh 'docker build -t emotion-detector .'
             }
         }
+        stage('Check sudo access') {
+            steps {
+                sh 'sudo whoami'
+            }
+        }
     }
 }
