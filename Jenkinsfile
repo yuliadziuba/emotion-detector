@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Run tests') {
             steps {
-                bat 'pytest tests/'
+                sh 'pytest tests/'
             }
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t emotion-detector .'
+                sh 'docker build -t emotion-detector .'
             }
         }
     }
