@@ -1,0 +1,5 @@
+tensorflow
+flask
+pytest
+opencv-python
+numpy
